@@ -21,6 +21,9 @@ jobs:
       DEPLOY_PATH: /www/wwwroot/stnexus.cone.wiki
 
     steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
       - name: Configure SSH
         env:
           DEPLOY_KEY: ${{ secrets.STNEXUS_DEPLOY_KEY }}
@@ -32,4 +35,5 @@ jobs:
 
       - name: Fetch, build, and publish on the server
         run: |
-          ssh "$DEPLOY_USER@$DEPLOY_HOST" "set -eu; cd '$DEPLOY_PATH'; git fetch origin main; git reset --hard origin/main; npm ci; npm run docs:build"
+          git push --force "ssh://$DEPLOY_USER@$DEPLOY_HOST/home/stnexus-deploy/stnexus_resources.git" HEAD:main
+          ssh "$DEPLOY_USER@$DEPLOY_HOST" "set -eu; cd '$DEPLOY_PATH'; export npm_config_cache=/home/stnexus-deploy/.npm; mkdir -p /home/stnexus-deploy/.npm; git fetch origin main; git reset --hard origin/main; rm -rf node_modules; npm ci; npm run docs:build"
