@@ -1,0 +1,60 @@
+:root {
+  --vp-c-brand-1: #16755b;
+  --vp-c-brand-2: #0e654d;
+  --vp-c-brand-3: #0a543f;
+  --vp-c-brand-soft: rgba(22, 117, 91, 0.14);
+}
+
+.VPHomeHero .image-container {
+  width: min(100%, 560px);
+  height: 360px;
+}
+
+.VPHomeHero .image-src {
+  max-width: 560px;
+  max-height: 360px;
+  object-fit: contain;
+}
+
+.VPHome .VPFeatures {
+  padding-bottom: 20px;
+}
+
+.vp-doc img {
+  border-radius: 6px;
+}
+
+.vp-doc .board-figure {
+  display: block;
+  max-height: 620px;
+  margin: 24px auto 8px;
+  object-fit: contain;
+}
+
+.vp-doc .figure-caption {
+  margin-top: 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 959px) {
+  .VPHomeHero .image-container {
+    height: 300px;
+  }
+
+  .VPHomeHero .image-src {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 640px) {
+  .VPHomeHero .image-container {
+    height: 320px;
+  }
+
+  .VPHomeHero .image-src {
+    max-width: 100%;
+    max-height: 220px;
+  }
+}
