@@ -35,5 +35,11 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/RoboMaster-DLMU-CONE/stnexus_resources' }
     ]
+  },
+  // The SSL renewal challenge lives under dist/.well-known and must survive builds.
+  vite: {
+    build: {
+      emptyOutDir: false
+    }
   }
 })

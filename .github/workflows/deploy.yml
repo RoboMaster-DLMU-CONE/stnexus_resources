@@ -36,4 +36,4 @@ jobs:
       - name: Fetch, build, and publish on the server
         run: |
           git push --force "ssh://$DEPLOY_USER@$DEPLOY_HOST/home/stnexus-deploy/stnexus_resources.git" HEAD:main
-          ssh "$DEPLOY_USER@$DEPLOY_HOST" "set -eu; cd '$DEPLOY_PATH'; export npm_config_cache=/home/stnexus-deploy/.npm; mkdir -p /home/stnexus-deploy/.npm; git fetch origin main; git reset --hard origin/main; rm -rf node_modules; npm ci; npm run docs:build"
+          ssh "$DEPLOY_USER@$DEPLOY_HOST" "set -eu; cd '$DEPLOY_PATH'; export npm_config_cache=/home/stnexus-deploy/.npm; mkdir -p /home/stnexus-deploy/.npm; git fetch origin main; git reset --hard origin/main; rm -rf node_modules; find docs/.vitepress/dist -mindepth 1 -maxdepth 1 ! -name .well-known -exec rm -rf {} +; npm ci; npm run docs:build"
