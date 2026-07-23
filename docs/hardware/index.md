@@ -24,26 +24,29 @@
 
 ::: navCard
 ```yaml
-- name: 我要找引脚
-  desc: 一张表查询 GPIO、定时器和通信复用关系
-  link: /hardware/pinout
-  badge: 速查
-  badgeType: info
-- name: 我要连接外设
-  desc: 先确认电压、线序、共地和总线终端
-  link: /hardware/safety
-  badge: 必读
-  badgeType: danger
-- name: 我要配置通信
-  desc: CAN、SBUS 与 USART 的接口和参数
-  link: /hardware/communication
-  badge: 总线
-  badgeType: tip
-- name: 我要读取传感器
-  desc: AHT20、OLED 与 BMI270 的总线定义
-  link: /hardware/sensors-display
-  badge: 传感器
-  badgeType: warning
+config:
+  target: _self
+data:
+  - name: 我要找引脚
+    desc: 一张表查询 GPIO、定时器和通信复用关系
+    link: /hardware/pinout
+    badge: 速查
+    badgeType: info
+  - name: 我要连接外设
+    desc: 先确认电压、线序、共地和总线终端
+    link: /hardware/safety
+    badge: 必读
+    badgeType: danger
+  - name: 我要配置通信
+    desc: CAN、SBUS 与 USART 的接口和参数
+    link: /hardware/communication
+    badge: 总线
+    badgeType: tip
+  - name: 我要读取传感器
+    desc: AHT20、OLED 与 BMI270 的总线定义
+    link: /hardware/sensors-display
+    badge: 传感器
+    badgeType: warning
 ```
 :::
 
