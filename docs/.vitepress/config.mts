@@ -13,7 +13,7 @@ const teekConfig = defineTeekConfig({
     copyright: {
       show: true,
       createYear: 2026,
-      name: 'DLMU C·ONE 创一工作室',
+      name: '大连民族大学 创一工作室 C·ONE战队',
       link: repositoryUrl,
     },
   },

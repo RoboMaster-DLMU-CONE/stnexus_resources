@@ -14,39 +14,22 @@
   max-width: 640px;
 }
 
-.VPHomeHero .hero-underline {
+.VPHomeHero .hero-text-underline {
   position: relative;
   z-index: 0;
   display: inline-block;
   isolation: isolate;
 }
 
-.VPHomeHero .hero-underline::before,
-.VPHomeHero .hero-underline::after {
+.VPHomeHero .hero-text-underline svg {
   position: absolute;
-  right: 0.05em;
-  left: 0.02em;
+  top: 1em;
+  left: 0.2em;
   z-index: -1;
-  display: block;
-  content: '';
+  width: calc(100% - 0.7em);
+  height: auto;
+  color: var(--vp-c-brand);
   pointer-events: none;
-  transform: rotate(-0.8deg);
-}
-
-.VPHomeHero .hero-underline::before {
-  bottom: 0.08em;
-  height: 0.14em;
-  background: linear-gradient(90deg, var(--vp-c-brand-2), var(--vp-c-brand-1) 55%, #51c2c1);
-  clip-path: polygon(0 44%, 9% 25%, 22% 43%, 39% 18%, 54% 38%, 70% 22%, 85% 36%, 100% 18%, 100% 78%, 82% 64%, 65% 83%, 47% 61%, 30% 84%, 13% 63%, 0 80%);
-  opacity: 0.7;
-}
-
-.VPHomeHero .hero-underline::after {
-  bottom: -0.02em;
-  height: 0.06em;
-  background: var(--vp-c-brand-1);
-  clip-path: polygon(0 38%, 18% 72%, 37% 25%, 57% 70%, 77% 28%, 100% 55%, 100% 100%, 80% 72%, 59% 100%, 39% 55%, 20% 100%, 0 68%);
-  opacity: 0.48;
 }
 
 .VPHomeHero .image-bg {
@@ -77,54 +60,66 @@
 
 .VPHomeFeatures .icon {
   flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--vp-c-brand-1) 22%, transparent);
+  background: color-mix(in srgb, var(--vp-c-brand-soft) 72%, var(--vp-c-bg-soft));
+  color: var(--vp-c-brand-1);
+  font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+  font-size: 26px;
+  line-height: 1;
+  text-shadow: 0 1px 1px color-mix(in srgb, var(--vp-c-brand-1) 28%, transparent);
 }
 
-/* Compact sun/moon button inspired by Xiumuzaidiao/Day-night-toggle-button. */
-.VPSwitchAppearance {
-  width: 34px !important;
-  height: 34px !important;
-  border: 1px solid var(--vp-c-divider) !important;
-  border-radius: 8px !important;
-  background: linear-gradient(145deg, #f4c96b, #fff5cf) !important;
-  box-shadow: 0 2px 8px rgba(120, 91, 15, 0.2);
-  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+/* The native VitePress switch is replaced by the upstream sliding switch. */
+.VPNavBarAppearance,
+.VPNavScreenAppearance,
+.VPNavBarExtra .item.appearance {
+  display: none !important;
 }
 
-.VPSwitchAppearance:hover {
-  border-color: var(--vp-c-brand-1) !important;
-  box-shadow: 0 4px 12px rgba(75, 64, 153, 0.24);
+.stnexus-day-night-toggle {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 24px;
+  flex: 0 0 60px;
+  vertical-align: middle;
 }
 
-.VPSwitchAppearance .check {
-  inset: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  transform: none !important;
-  background: transparent !important;
-  box-shadow: none !important;
+.stnexus-footer-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  width: 100%;
 }
 
-.VPSwitchAppearance .icon {
-  width: 100% !important;
-  height: 100% !important;
+.stnexus-footer-badges a {
+  display: inline-flex;
+  line-height: 0;
 }
 
-.VPSwitchAppearance .icon [class^='vpi-'] {
-  top: 8px !important;
-  left: 8px !important;
-  width: 16px !important;
-  height: 16px !important;
-  color: #6d5315 !important;
-  transition: opacity 0.2s ease, transform 0.2s ease !important;
+.stnexus-footer-badges img {
+  display: block;
+  height: 20px;
+  border-radius: 3px;
 }
 
-.dark .VPSwitchAppearance {
-  background: linear-gradient(145deg, #1d2d55, #303b61) !important;
-  box-shadow: 0 2px 8px rgba(20, 28, 54, 0.46);
+.stnexus-footer-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  width: 100%;
 }
 
-.dark .VPSwitchAppearance .icon [class^='vpi-'] {
-  color: #d9e3ff !important;
+.stnexus-footer-meta strong {
+  color: var(--vp-c-text-1);
+}
+
+.stnexus-footer-meta a {
+  color: var(--vp-c-brand-1);
 }
 
 .vp-doc img {

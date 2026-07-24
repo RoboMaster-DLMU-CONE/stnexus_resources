@@ -4,7 +4,7 @@ titleTemplate: false
 
 hero:
   name: "星创矩阵 Wiki"
-  text: "Stellaris-Nexus<br><span class=\"hero-underline\">开发板文档</span>"
+  text: 'Stellaris-Nexus<br><span class="hero-text-underline">开发板文档<svg aria-hidden="true" width="240" height="11" viewBox="0 0 240 11" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M2 7C18 4 34 9 51 6C70 3 87 9 104 6C126 3 144 9 163 6C184 3 211 8 238 5L238 9C210 11 184 7 163 10C143 12 125 7 104 10C86 12 68 7 51 10C34 12 17 7 2 10Z" /></svg></span>'
   tagline: "面向嵌入式入门、新生培训与机器人控制实践"
   image:
     src: /images/board/stellaris-nexus-assembly.png
@@ -19,13 +19,13 @@ hero:
 
 features:
   - title: 硬件手册
-    icon: "🧩"
+    icon: "🔌"
     details: 从最小系统、板载 Link 到传感器与通信接口，快速定位引脚、供电要求和接线注意事项。
   - title: 实验教程
-    icon: "🧪"
+    icon: "🔧"
     details: 按 GPIO、ADC、PWM、I²C、SPI、FreeRTOS 与 CAN 的顺序推进，建立完整的嵌入式知识链。
   - title: 工程实践
-    icon: "⚙️"
+    icon: "⚙"
     details: 基于真实例程学习 CubeMX 配置、HAL 驱动、分层代码组织和机器人执行机构控制。
 ---
 
