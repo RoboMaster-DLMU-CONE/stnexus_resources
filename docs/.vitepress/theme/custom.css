@@ -7,10 +7,124 @@
   max-width: 560px;
   max-height: 360px;
   object-fit: contain;
+  z-index: 1;
+}
+
+.VPHomeHero .text {
+  max-width: 640px;
+}
+
+.VPHomeHero .hero-underline {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.VPHomeHero .hero-underline::before,
+.VPHomeHero .hero-underline::after {
+  position: absolute;
+  right: 0.05em;
+  left: 0.02em;
+  z-index: -1;
+  display: block;
+  content: '';
+  pointer-events: none;
+  transform: rotate(-0.8deg);
+}
+
+.VPHomeHero .hero-underline::before {
+  bottom: 0.08em;
+  height: 0.14em;
+  background: linear-gradient(90deg, var(--vp-c-brand-2), var(--vp-c-brand-1) 55%, #51c2c1);
+  clip-path: polygon(0 44%, 9% 25%, 22% 43%, 39% 18%, 54% 38%, 70% 22%, 85% 36%, 100% 18%, 100% 78%, 82% 64%, 65% 83%, 47% 61%, 30% 84%, 13% 63%, 0 80%);
+  opacity: 0.7;
+}
+
+.VPHomeHero .hero-underline::after {
+  bottom: -0.02em;
+  height: 0.06em;
+  background: var(--vp-c-brand-1);
+  clip-path: polygon(0 38%, 18% 72%, 37% 25%, 57% 70%, 77% 28%, 100% 55%, 100% 100%, 80% 72%, 59% 100%, 39% 55%, 20% 100%, 0 68%);
+  opacity: 0.48;
+}
+
+.VPHomeHero .image-bg {
+  background-image: linear-gradient(135deg, rgba(148, 130, 255, 0.7), rgba(38, 193, 185, 0.62));
+  filter: blur(72px);
+  opacity: 0.78;
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+.dark .VPHomeHero .image-bg {
+  opacity: 0.6;
 }
 
 .VPHome .VPFeatures {
   padding-bottom: 20px;
+}
+
+.VPHomeFeatures .VPFeature {
+  height: 100%;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.VPHomeFeatures .VPFeature:hover {
+  border-color: var(--vp-c-brand-2);
+  box-shadow: var(--vp-shadow-2);
+  transform: translateY(-2px);
+}
+
+.VPHomeFeatures .icon {
+  flex-shrink: 0;
+}
+
+/* Compact sun/moon button inspired by Xiumuzaidiao/Day-night-toggle-button. */
+.VPSwitchAppearance {
+  width: 34px !important;
+  height: 34px !important;
+  border: 1px solid var(--vp-c-divider) !important;
+  border-radius: 8px !important;
+  background: linear-gradient(145deg, #f4c96b, #fff5cf) !important;
+  box-shadow: 0 2px 8px rgba(120, 91, 15, 0.2);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.VPSwitchAppearance:hover {
+  border-color: var(--vp-c-brand-1) !important;
+  box-shadow: 0 4px 12px rgba(75, 64, 153, 0.24);
+}
+
+.VPSwitchAppearance .check {
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  transform: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.VPSwitchAppearance .icon {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.VPSwitchAppearance .icon [class^='vpi-'] {
+  top: 8px !important;
+  left: 8px !important;
+  width: 16px !important;
+  height: 16px !important;
+  color: #6d5315 !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+}
+
+.dark .VPSwitchAppearance {
+  background: linear-gradient(145deg, #1d2d55, #303b61) !important;
+  box-shadow: 0 2px 8px rgba(20, 28, 54, 0.46);
+}
+
+.dark .VPSwitchAppearance .icon [class^='vpi-'] {
+  color: #d9e3ff !important;
 }
 
 .vp-doc img {

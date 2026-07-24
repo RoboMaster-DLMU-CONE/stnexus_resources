@@ -33,6 +33,8 @@ export default defineConfig({
     ['link', { rel: 'icon', href: '/favicon.ico' }],
   ],
   themeConfig: {
+    darkModeSwitchTitle: '切换到深色模式',
+    lightModeSwitchTitle: '切换到浅色模式',
     siteTitle: '星创矩阵 Wiki',
     nav: [
       { text: '首页', link: '/' },
