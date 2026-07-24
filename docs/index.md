@@ -42,17 +42,17 @@ data:
     badgeType: info
   - name: 点亮第一个 LED
     desc: 完成环境检查、构建、下载和运行闭环
-    link: /software/gpio-led
+    link: /software/gpio-led.html
     badge: 入门
     badgeType: tip
   - name: 查询硬件接口
     desc: 查找引脚、总线、供电与接线限制
-    link: /hardware/pinout
+    link: /hardware/pinout.html
     badge: 手册
     badgeType: warning
   - name: 进入 FreeRTOS
     desc: 从裸机循环过渡到任务、调度与模块化工程
-    link: /software/freertos-framework
+    link: /software/freertos-framework.html
     badge: 进阶
     badgeType: danger
 ```

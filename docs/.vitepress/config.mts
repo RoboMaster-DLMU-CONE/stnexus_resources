@@ -25,7 +25,9 @@ export default defineConfig({
   titleTemplate: ':title | 星创矩阵 Wiki',
   description: 'Stellaris-Nexus 开发板硬件手册、嵌入式实验教程与新生培训文档',
   lastUpdated: true,
-  cleanUrls: true,
+  // The production host serves the generated dist directory as static files.
+  // Keep the .html suffix so direct navigation works without an Nginx rewrite.
+  cleanUrls: false,
   head: [
     ['meta', { name: 'theme-color', content: '#16755b' }],
     ['link', { rel: 'icon', href: '/favicon.ico' }],
