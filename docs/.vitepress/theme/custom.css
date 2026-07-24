@@ -85,6 +85,12 @@
   vertical-align: middle;
 }
 
+@media (min-width: 960px) {
+  .stnexus-day-night-toggle {
+    margin-left: 10px;
+  }
+}
+
 .stnexus-footer-badges {
   display: inline-flex;
   flex-wrap: wrap;
