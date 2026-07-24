@@ -8,6 +8,8 @@ const teekConfig = defineTeekConfig({
   teekHome: false,
   vpHome: true,
   sidebarTrigger: true,
+  // The custom switch uses a lightweight full-page crossfade instead.
+  viewTransition: { enabled: false },
   footerInfo: {
     theme: { show: false },
     copyright: {

@@ -3,6 +3,39 @@ import 'vitepress-theme-teek/index.css'
 import './custom.css'
 import { inBrowser } from 'vitepress'
 
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (update: () => void) => { finished: Promise<void> }
+}
+
+const toggleAppearanceWithFade = (appearanceButton: HTMLButtonElement | null) => {
+  if (!appearanceButton) return
+
+  const root = document.documentElement
+  const updateTheme = () => appearanceButton.click()
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  const startViewTransition = (document as ViewTransitionDocument).startViewTransition
+
+  if (reducedMotion) {
+    updateTheme()
+    return
+  }
+
+  root.classList.add('stnexus-theme-fade')
+  if (startViewTransition) {
+    const transition = startViewTransition.call(document, updateTheme)
+    transition.finished.finally(() => root.classList.remove('stnexus-theme-fade'))
+    return
+  }
+
+  root.classList.add('stnexus-theme-fade-fallback')
+  requestAnimationFrame(() => {
+    updateTheme()
+    window.setTimeout(() => {
+      root.classList.remove('stnexus-theme-fade', 'stnexus-theme-fade-fallback')
+    }, 260)
+  })
+}
+
 const mountDayNightToggle = () => {
   const contentBody = document.querySelector('.VPNavBar .content-body')
   if (!contentBody || contentBody.querySelector('.stnexus-day-night-toggle')) return
@@ -18,7 +51,10 @@ const mountDayNightToggle = () => {
   toggle.addEventListener('change', (event) => {
     const requestedDark = (event as CustomEvent<'light' | 'dark'>).detail === 'dark'
     const currentDark = document.documentElement.classList.contains('dark')
-    if (requestedDark !== currentDark) appearanceButton?.click()
+    const nextTitle = requestedDark ? '切换到浅色模式' : '切换到深色模式'
+    toggle.setAttribute('title', nextTitle)
+    toggle.setAttribute('aria-label', nextTitle)
+    if (requestedDark !== currentDark) toggleAppearanceWithFade(appearanceButton)
   })
 
   const hamburger = contentBody.querySelector('.hamburger')

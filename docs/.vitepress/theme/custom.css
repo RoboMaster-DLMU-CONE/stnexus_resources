@@ -14,22 +14,34 @@
   max-width: 640px;
 }
 
-.VPHomeHero .hero-text-underline {
-  position: relative;
-  z-index: 0;
-  display: inline-block;
-  isolation: isolate;
+/* Replace Teek's radial reveal with a single, GPU-friendly page crossfade. */
+html.stnexus-theme-fade::view-transition-old(root) {
+  z-index: 1;
+  animation: stnexus-theme-fade-out 240ms ease both;
 }
 
-.VPHomeHero .hero-text-underline svg {
-  position: absolute;
-  top: 1em;
-  left: 0.2em;
-  z-index: -1;
-  width: calc(100% - 0.7em);
-  height: auto;
-  color: var(--vp-c-brand);
-  pointer-events: none;
+html.stnexus-theme-fade::view-transition-new(root) {
+  z-index: 2;
+  animation: stnexus-theme-fade-in 240ms ease both;
+}
+
+@keyframes stnexus-theme-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes stnexus-theme-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+html.stnexus-theme-fade-fallback body,
+html.stnexus-theme-fade-fallback .Layout,
+html.stnexus-theme-fade-fallback .VPNavBar,
+html.stnexus-theme-fade-fallback .VPSidebar,
+html.stnexus-theme-fade-fallback .VPFeature,
+html.stnexus-theme-fade-fallback .VPFooter {
+  transition: color 240ms ease, background-color 240ms ease, border-color 240ms ease;
 }
 
 .VPHomeHero .image-bg {
